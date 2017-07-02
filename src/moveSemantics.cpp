@@ -218,6 +218,13 @@ int main()
 
         foo1(std::move(obj6));//Calls foo1 rvalue.No Destructor
 
+        std::cout << "*********************************************************" << std::endl;
+        std::cout << "Checkpoint4" << std::endl;
+        //MoveSemantics& objref = returnObjByValue(); //Should not work
+        const MoveSemantics& objref1 = returnObjByValue(); //this is allwd .One can assign rvalue to regular or lvalue reference only if it is const.
+        MoveSemantics&& objref = returnObjByValue();//Allowd.This is new
+
+
         std::cout << "==================================================" << std::endl;
         std::cout << "This is before end" << std::endl;
         return 0;
