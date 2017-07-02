@@ -15,23 +15,29 @@ INCLUDE_PATH = ./include
 BUILD_PATH = ./release
 OBJ_PATH = ./objs
 
+TARGETS = $(BUILD_PATH)/cppBasics $(BUILD_PATH)/moveSemantics
+
+
 .PHONY : all
-all : $(BUILD_PATH)/cppBasics $(BUILD_PATH)/cppBasics11
+all : $(TARGETS)
 
 #$@ represents the targets
 #$^ represents all the prerequisites
-
-$(BUILD_PATH)/cppBasics11 : $(OBJ_PATH)/cppBasics11.o 
-	$(CC11) $^ $(LINKER_FLAGS) $@ 
-
-$(OBJ_PATH)/cppBasics11.o : cppBasics.cpp 
-	$(CC11) $(COMPILER_FLAGS) $^ $(LINKER_FLAGS) $@
 
 $(BUILD_PATH)/cppBasics : $(OBJ_PATH)/cppBasics.o 
 	$(CC11) $^ $(LINKER_FLAGS) $@ 
 
 $(OBJ_PATH)/cppBasics.o : cppBasics.cpp 
 	$(CC11) $(COMPILER_FLAGS) $^ $(LINKER_FLAGS) $@
+
+
+$(BUILD_PATH)/moveSemantics : $(OBJ_PATH)/moveSemantics.o 
+	$(CC11) $^ $(LINKER_FLAGS) $@ 
+
+
+$(OBJ_PATH)/moveSemantics.o : moveSemantics.cpp 
+	$(CC11) $(COMPILER_FLAGS) $^ $(LINKER_FLAGS) $@
+
 
 clean :
 	find . -name *.o | xargs rm

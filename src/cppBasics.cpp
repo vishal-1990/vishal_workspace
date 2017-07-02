@@ -39,6 +39,11 @@ BaseClass::BaseClass(int a,int b)
     std::cout << "Inside Ordinary Constructor\nvar1:" << this->var1 << "var2:" << this->var2 << "staticMember:" << BaseClass::staticFunc() << std::endl;
 }
 
+/*
+Destructor
+A destructor cannot have arguments and a class can have only one destrutor.
+A destructor is invoked implicitly when the object goes out of scope.
+*/
 BaseClass::~BaseClass()
 {
     delete []x;
