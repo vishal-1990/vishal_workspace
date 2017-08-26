@@ -81,7 +81,7 @@ BaseClass::BaseClass(const BaseClass &obj)
 /*
    Overloading the default assignment operator
 */
-void BaseClass::operator=(const BaseClass &obj)
+BaseClass& BaseClass::operator=(const BaseClass &obj)
 {
      this->var1 = obj.var1 ;
      this->var2 = obj.var2 ;
@@ -89,6 +89,7 @@ void BaseClass::operator=(const BaseClass &obj)
 
      std::cout << "=========================================================================" << std::endl ; 
      std::cout << "Inside Assignment operator\nvar1:" << this->var1 << "var2:" << this->var2 << std::endl;
+
 }
 
 //constant member function
