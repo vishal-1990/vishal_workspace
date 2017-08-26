@@ -175,6 +175,18 @@ void foo1(MoveSemantics& obj)
         std::cout << "==================================================" << std::endl;
         std::cout << "Inside function foo1 lvalue" << std::endl;
 }
+
+void foo2(const int& arg)
+{
+        std::cout << "==================================================" << std::endl;
+        std::cout << "Inside function foo2 lvalue" << std::endl;
+}
+void foo2(int&& arg)
+{
+        std::cout << "==================================================" << std::endl;
+        std::cout << "Inside function foo2 rvalue" << std::endl;
+}
+
 int main()
 {
         MoveSemantics obj{10}; // Calls normal constructor
@@ -196,9 +208,15 @@ int main()
         //MoveConstructor should be used when their would not be use of source object further.
         MoveSemantics obj5{std::move(obj)}; // Calls move constructor.
 
+
         foo(obj3); // This should call the copy constructor
 
-        foo(returnObjByValue()); // this called normal constructor only.Surprised  
+        foo(returnObjByValue()); 
+        std::cout << "*********************************************************" << std::endl;
+        std::cout << "Checkpoint5" << std::endl;
+        foo2(10); // This calls rvalue
+        int a = 20; // This calls lvalue
+        foo2(a);
 
         
         std::cout << "*********************************************************" << std::endl;

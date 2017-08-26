@@ -25,3 +25,9 @@ is deprecated in the ISO standard (§iso.D), and you should expect a modern comp
 warn against it.
 If necessary, we can be explicit about which functions are generated (§17.6.1) and which are no
 ==============================================================================================================================================
+function delete
+We can ‘‘delete’’ a function; that is, we can state that a function does not exist so that it is an error
+to try to use it (implicitly or explicitly)
+Base(const Base&) = delete;
+Base(const Base&) = default;
+==============================================================================================================================================

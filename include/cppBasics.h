@@ -39,7 +39,7 @@ class BaseClass {
 
     //Operator overloading
 
-    void operator=(const BaseClass &obj);
+    BaseClass& operator=(const BaseClass &obj);
 
     void inlineCheck(){std::cout << "checking for inline func" << std::endl;} // this acts as an inline function
 
