@@ -16,7 +16,8 @@ INCLUDE_PATH = ./include
 BUILD_PATH = ./release
 OBJ_PATH = ./objs
 
-TARGETS = $(BUILD_PATH)/cppBasics $(BUILD_PATH)/moveSemantics $(BUILD_PATH)/smartPointer $(BUILD_PATH)/castingexe $(BUILD_PATH)/functors_lambda $(BUILD_PATH)/singleton $(BUILD_PATH)/linkedList
+TARGETS = $(BUILD_PATH)/cppBasics $(BUILD_PATH)/moveSemantics $(BUILD_PATH)/smartPointer $(BUILD_PATH)/castingexe $(BUILD_PATH)/functors_lambda $(BUILD_PATH)/singleton $(BUILD_PATH)/linkedList $(BUILD_PATH)/bubbleSort $(BUILD_PATH)/insertionSort $(BUILD_PATH)/selectionSort $(BUILD_PATH)/stdarray
+
 
 
 .PHONY : all
@@ -67,6 +68,30 @@ $(BUILD_PATH)/linkedList : $(OBJ_PATH)/linkedList.o
 	$(CC14) $^ $(LINKER_FLAGS) $@ 
 
 $(OBJ_PATH)/linkedList.o : dataStructures/linkedList.cpp
+	$(CC14) $(COMPILER_FLAGS) $^ $(LINKER_FLAGS) $@
+
+$(BUILD_PATH)/bubbleSort : $(OBJ_PATH)/bubbleSort.o
+	$(CC14) $^ $(LINKER_FLAGS) $@ 
+
+$(OBJ_PATH)/bubbleSort.o : sortalgo/bubbleSort.cpp
+	$(CC14) $(COMPILER_FLAGS) $^ $(LINKER_FLAGS) $@
+
+$(BUILD_PATH)/insertionSort : $(OBJ_PATH)/insertionSort.o
+	$(CC14) $^ $(LINKER_FLAGS) $@ 
+
+$(OBJ_PATH)/insertionSort.o : sortalgo/insertionSort.cpp
+	$(CC14) $(COMPILER_FLAGS) $^ $(LINKER_FLAGS) $@
+
+$(BUILD_PATH)/selectionSort : $(OBJ_PATH)/selectionSort.o
+	$(CC14) $^ $(LINKER_FLAGS) $@ 
+
+$(OBJ_PATH)/selectionSort.o : sortalgo/selectionSort.cpp
+	$(CC14) $(COMPILER_FLAGS) $^ $(LINKER_FLAGS) $@
+
+$(BUILD_PATH)/stdarray : $(OBJ_PATH)/stdarray.o
+	$(CC14) $^ $(LINKER_FLAGS) $@ 
+
+$(OBJ_PATH)/stdarray.o : stl/stdarray.cpp
 	$(CC14) $(COMPILER_FLAGS) $^ $(LINKER_FLAGS) $@
 clean :
 	find . -name *.o | xargs rm
